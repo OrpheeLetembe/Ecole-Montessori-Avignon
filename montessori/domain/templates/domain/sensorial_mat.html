@@ -1,0 +1,21 @@
+{% extends "domain/base.html" %}
+
+{% block title %}{{student}}-MATERIEL SENSORIEL{% endblock %}
+
+{% block content %}
+
+
+    <div >
+        <h2>MATERIEL SENSORIEL</h2>
+        <p>{{ message}}</p>
+        <form method='post'> {% csrf_token %}
+            <table class="table table-bordered">
+            {{form.as_table}}
+            </table>
+
+                <button class="btn btn-outline-dark" type='submit' >Enregistrer</button>
+        </form>
+    </div>
+
+
+{% endblock content %}

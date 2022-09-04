@@ -1,0 +1,57 @@
+
+header {
+ display: flex;
+ justify-content: space-between;
+ text-align: center;
+ padding: 25px 0;
+}
+
+
+.menu {
+  display: flex;
+  padding: 0;
+}
+
+.menu li {
+    list-style-type: none;
+}
+
+.menu a {
+    display: block;
+    min-width: 100px;
+    margin: 0.5rem;
+    padding: 0.5rem 0;
+    text-decoration: none;
+
+}
+
+.block-ambience a {
+    text-decoration: none;
+
+}
+
+.box-ambience {
+    display: flex;
+    padding: 0;
+    margin: 0.5rem;
+
+}
+
+.item-ambience {
+    padding: 0.5rem 0.5rem;
+    margin: 0.5rem;
+}
+
+.item-ambience a {
+    text-decoration: none;
+}
+
+.menu_inscription li {
+    list-style-type: none;
+}
+
+.student_box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

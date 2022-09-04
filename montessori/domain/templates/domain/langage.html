@@ -1,0 +1,25 @@
+{% extends "domain/base.html" %}
+
+{% block title %}{{student}}-LANGAGE{% endblock %}
+
+{% block content %}
+
+
+    <div >
+        <h2>LANGAGE</h2>
+        {% if form.errors %}
+        {{form.errors }}
+    {% endif %}
+    <form method='post'> {% csrf_token %}
+        <table class="table table-bordered">
+            {{langage_form.as_table}}
+        </table>
+       <table class="table table-bordered">
+            {{letter_form.as_table}}
+        </table>
+        <button class="btn btn-outline-dark" type='submit' >Enregistrer</button>
+    </form>
+    </div>
+
+
+{% endblock content %}

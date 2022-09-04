@@ -1,0 +1,35 @@
+{% extends "ambience/base.html" %}
+
+{% block title %}Ambiances{% endblock %}
+
+{% block content %}
+<div class="">
+    <div class="block-ambience">
+        {{ambience}}
+         <ul class="menu_inscription">
+                <li class=""><a href="{% url 'add_student' id=ambience.id%}">Inscription</a> </li>
+                <li class=""><a href="{% url 'student_list' ambience_id=ambience.id%}">Réinscription</a></li>
+                <li class=""><a href="{% url 'ambience' %}">Retour</a></li>
+         </ul>
+
+    </div>
+    <div class="box-ambience">
+        {% for student in students %}
+            <div class="student_box">
+                <div>
+                     <a href="{% url 'practical_life' ambience_id=ambience.id student_id=student.id%}">
+                     <img class="rounded-circle p-2 w-45 h-45" src="{{student.photo.url}}" alt="">
+                    </a>
+                </div>
+                <div class="pl-2">
+                    {{student}}
+                </div>
+
+            </div>
+        {% endfor%}
+
+    </div>
+
+</div>
+
+{% endblock content %}

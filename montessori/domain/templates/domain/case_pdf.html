@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{student}}</title>
+        <style type="text/css">
+
+            body {
+                font-weight: 200;
+                font-size: 14px;
+                width: 200px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+
+            }
+            .photo {
+                 text-align: left;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               text-align: center;
+               padding: 10px 20px 0px 20px;
+            }
+
+
+            .table, .table_letter {
+              border : 1px solid #ddd;
+
+            }
+            .table td {
+
+             padding-top: 2pt;
+             padding-left: 1pt;
+
+           }
+           .table_letter td {
+            padding-top: 2pt;
+            text-align: center;
+           }
+
+            .profil {
+                text-align: left !important;
+
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+
+            }
+            @frame footer_frame {           /* Another static Frame */
+              -pdf-frame-content: footer_content;
+              left: 400pt; top: 1170pt; height: 20pt;
+
+    }
+
+        </style>
+    </head>
+    <body>
+        <div class="header" >
+            <img src="static/logo.png" alt="LOGO" class="img-fluid" width="200" >
+        </div>
+        <p class="title">ANNE SCOLAIRE {{student.ambience.date_start}}/{{student.ambience.date_end}}</p>
+        <div class="photo">
+            <img src="{{student.photo.path}}" alt="Photo" class="img-fluid " width="100" >
+            <p>{{student.firstname}} {{student.lastname}} <br> Date de naissance: {{student.date_of_birth}}</p>
+        </div>
+        <div class="contain">
+            <p class="profil">{{student.profil}}</p>
+            <h1>VIE PRATIQUE</h1>
+            <p><b>Trimestre 1</b> <br>{{pls.observations_1}}</p>
+            <p><b>Trimestre 2</b> <br>{{pls.observations_2}}</p>
+            <p><b>Trimestre 3</b> <br>{{pls.observations_3}}</p>
+
+            <h2>Exercices préliminaires</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Se déplacer dans l'ambiance</td>
+                      <td>{{pls.move_mood}}</td>
+                    </tr>
+                    <tr>
+                      <td>Porter une table seul, à deux</td>
+                      <td>{{pls.carry_table}}</td>
+                    </tr>
+                    <tr>
+                      <td>Porter un plateau, un objet fragile</td>
+                      <td>{{pls.Carry_tray}}</td>
+                    </tr>
+                    <tr>
+                      <td>Porter, dérouler et rouler un tapis</td>
+                      <td>{{pls.Carrying_mat}}</td>
+                    </tr>
+                    <tr>
+                      <td>Ouvrir et fermer une porte</td>
+                      <td>{{pls.open_close_door}}</td>
+                    </tr>
+                    <tr>
+                      <td>Ouvrir et fermer une fenêtre, un tiroir</td>
+                      <td>{{pls.open_close_window}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Soin du milieu intérieur</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td >Presser une éponge</td>
+                      <td>{{pls.squeeze_sponge}}</td>
+                    </tr>
+                    <tr>
+                      <td>Visser, dévisser des boulons</td>
+                      <td>{{pls.Screw_bolts}}</td>
+                    </tr>
+                    <tr>
+                      <td>Utiliser un tournevis</td>
+                      <td>{{pls.screwdriver}}</td>
+                    </tr>
+                    <tr>
+                      <td>Ouvrir et fermer un cadenas</td>
+                      <td>{{pls.open_close_padlock}}</td>
+                    </tr>
+                    <tr>
+                      <td>Se servir de pinces à linge</td>
+                      <td>{{pls.use_clothes_pegs}}</td>
+                    </tr>
+                    <tr>
+                      <td>Ouvrir et fermer des boites</td>
+                      <td>{{pls.open_close_boxes}}</td>
+                    </tr>
+                    <tr>
+                      <td>Ouvrir et fermer des flacons</td>
+                      <td>{{pls.open_close_bottles}}</td>
+                    </tr>
+                    <tr>
+                      <td>Plier des étoffes</td>
+                      <td>{{pls.fold_fabrics}}</td>
+                    </tr>
+                    <tr>
+                      <td>Plier du papier</td>
+                      <td>{{pls.fold_paper}}</td>
+                    </tr>
+                    <tr>
+                      <td>Couper du papier avec des ciseaux</td>
+                      <td>{{pls.cut_paper_scissors}}</td>
+                    </tr>
+                    <tr>
+                      <td>Coller du papier</td>
+                      <td>{{pls.paste_paper}}</td>
+                    </tr>
+                    <tr>
+                      <td>Epousseter avec un chiffon, un plumeau</td>
+                      <td>{{pls.dust}}</td>
+                    </tr>
+                    <tr>
+                      <td>Balayer</td>
+                      <td>{{pls.sweep}}</td>
+                    </tr>
+                     <tr>
+                      <td>Brosser un tapis</td>
+                      <td>{{pls.brush_carpet}}</td>
+                    </tr>
+                    <tr>
+                      <td>Transvaser avec une cuillère</td>
+                      <td>{{pls.transfer_spoon}}</td>
+                    </tr>
+                    <tr>
+                      <td>Verser du riz</td>
+                      <td>{{pls.pour_rice}}</td>
+                    </tr>
+                    <tr>
+                      <td>Verser du sable</td>
+                      <td>{{pls.pour_sand}}</td>
+                    </tr>
+                    <tr>
+                      <td>Verser de l'eau</td>
+                      <td>{{pls.pour_water}}</td>
+                    </tr>
+                    <tr>
+                      <td>Verser de l'eau dans des verres</td>
+                      <td>{{pls.pour_water_glasses}}</td>
+                    </tr>
+                    <tr>
+                      <td>Nettoyer un miroir</td>
+                      <td>{{pls.clean_mirror}}</td>
+                    </tr>
+                    <tr>
+                      <td>Astiquer les cuivres</td>
+                      <td>{{pls.polish_brass}}</td>
+                    </tr>
+                    <tr>
+                      <td>Soigner les plantes</td>
+                      <td>{{pls.take_care_plants}}</td>
+                    </tr>
+                    <tr>
+                      <td>Changer l'eau des fleurs</td>
+                      <td>{{pls.chang_flower_water}}</td>
+                    </tr>
+                    <tr>
+                      <td>Laver la table</td>
+                      <td>{{pls.wash_table}}</td>
+                    </tr>
+                    <tr>
+                      <td>Laver du linge</td>
+                      <td>{{pls.wash_clothes}}</td>
+                    </tr>
+                    <tr>
+                      <td>Piquage</td>
+                      <td>{{pls.stitching}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Soin de la personne</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Cadre à boutons pressions</td>
+                      <td>{{pls.frame_press_studs}}</td>
+                    </tr>
+                    <tr>
+                      <td>Cadre à gros boutons</td>
+                      <td>{{pls.frame_big_studs}}</td>
+                    </tr>
+                    <tr>
+                      <td>Cadre à petits boutons</td>
+                      <td>{{pls.frame_small_studs}}</td>
+                    </tr>
+                    <tr>
+                      <td>Cadre à glissière</td>
+                      <td>{{pls.frame_slide}}</td>
+                    </tr>
+                    <tr>
+                      <td>Cadre à agrafes</td>
+                      <td>{{pls.frame_staple}}</td>
+                    </tr>
+                    <tr>
+                      <td>Cadre à boucles</td>
+                      <td>{{pls.frame_loop}}</td>
+                    </tr>
+                    <tr>
+                      <td>Cadre à épingles à nourrice</td>
+                      <td>{{pls.frame_safety_pin}}</td>
+                    </tr>
+                    <tr>
+                      <td>Cadre à noeuds</td>
+                      <td>{{pls.frame_node}}</td>
+                    </tr>
+                    <tr>
+                      <td>Cadre à laçage</td>
+                      <td>{{pls.frame_lacing}}</td>
+                    </tr>
+                    <tr>
+                      <td>Se laver les mains</td>
+                      <td>{{pls.wash_hands}}</td>
+                    </tr>
+                     <tr>
+                      <td>Faire le pain</td>
+                      <td>{{pls.make_bread}}</td>
+                    </tr>
+                    <tr>
+                      <td>Préparer les fruits frais</td>
+                      <td>{{pls.fresh_fruit}}</td>
+                    </tr>
+                    <tr>
+                      <td>Cirer ses chaussures</td>
+                      <td>{{pls.shine_shoes}}</td>
+                    </tr>
+                    <tr>
+                      <td>Coudre</td>
+                      <td>{{pls.sew}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Jeux collectifs</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Marcher sur la ligne</td>
+                      <td>{{pls.walk_line}}</td>
+                    </tr>
+                    <tr>
+                      <td>Leçon de silence</td>
+                      <td>{{pls.lesson_silence}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h1>MATERIEL SENSORIEL</h1>
+            <p><b>Trimestre 1</b> <br>{{mss.observations_1}}</p>
+            <p><b>Trimestre 2</b> <br>{{mss.observations_2}}</p>
+            <p><b>Trimestre 3</b> <br>{{mss.observations_3}}</p>
+            <h2>Visuel</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Emboitements cylindriques 1</td>
+                      <td>{{mss.cylindrical_sockets_1}}</td>
+                    </tr>
+                    <tr>
+                      <td>Emboitements cylindriques 2</td>
+                      <td>{{mss.cylindrical_sockets_2}}</td>
+                    </tr>
+                    <tr>
+                      <td>Emboitements cylindriques 3</td>
+                      <td>{{mss.cylindrical_sockets_3}}</td>
+                    </tr>
+                    <tr>
+                      <td>Emboitements cylindriques 4</td>
+                      <td>{{mss.cylindrical_sockets_4}}</td>
+                    </tr>
+                    <tr>
+                      <td>La tour rose</td>
+                      <td>{{mss.pink_tower}}</td>
+                    </tr>
+                    <tr>
+                      <td>L'escalier marron</td>
+                      <td>{{mss.brown_staircase}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les barres rouges</td>
+                      <td>{{mss.red_bars}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les tables des couleurs 1</td>
+                      <td>{{mss.color_table_1}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les tables des couleurs 2</td>
+                      <td>{{mss.color_table_2}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les tables des couleurs 3</td>
+                      <td>{{mss.color_table_3}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Le cabinet de géométrie/cartes</td>
+                      <td>{{mss.geometry_maps}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le cabinet de géométrie/plateau</td>
+                      <td>{{mss.geometry_tray}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le cabinet de géométrie/tiroirs</td>
+                      <td>{{mss.geometry_drawers}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Les triangles constructeurs 1</td>
+                      <td>{{mss.constructor_triangles_1}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les triangles constructeurs 2</td>
+                      <td>{{mss.constructor_triangles_2}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les triangles constructeurs 3</td>
+                      <td>{{mss.constructor_triangles_3}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les triangles constructeurs 4</td>
+                      <td>{{mss.constructor_triangles_4}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les triangles constructeurs 5</td>
+                      <td>{{mss.constructor_triangles_5}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les triangles constructeurs 6</td>
+                      <td>{{mss.constructor_triangles_6}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Les figures superposées</td>
+                      <td>{{mss.superimposed_figures}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le cube du binôme</td>
+                      <td>{{mss.binomial_cube}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le cube du trinôme</td>
+                      <td>{{mss.trinomial_cube}}</td>
+                    </tr>
+                    <tr>
+                      <td>La table de Pythagore</td>
+                      <td>{{mss.pythagore_table}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les cylindres de couleur</td>
+                      <td>{{mss.colored_cylinders}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le cabinet de botaniques/plateau</td>
+                      <td>{{mss.botanical_tray}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le cabinet de botaniques/cartes</td>
+                      <td>{{mss.botanical_maps}}</td>
+                    </tr>
+                    <tr>
+                      <td>L'arche romane</td>
+                      <td>{{mss.roman_arch}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Tactile</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lisse et rugueux</td>
+                        <td>{{mss.smooth_rough}}</td>
+                    </tr>
+                    <tr>
+                        <td>Lisse et rugueux : les tablettes</td>
+                        <td>{{mss.smooth_rough_table}}</td>
+                    </tr>
+                    <tr>
+                        <td>Les étoffes</td>
+                        <td>{{mss.fabrics}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les tablettes baryques</td>
+                      <td>{{mss.baryque_tablets}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les bouteilles thermiques</td>
+                      <td>{{mss.thermal_bottles}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les tablettes thermiques</td>
+                      <td>{{mss.thermal_tablets}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Stéréognostique</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Les solides géométriques</td>
+                      <td>{{mss.geometric_solids}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le sac à mystères</td>
+                      <td>{{mss.mystery_bag}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les sacs stéréognostiques</td>
+                      <td>{{mss.stereognostic_bag}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le tri des graines</td>
+                      <td>{{mss.seed_sorting}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Auditif</h2>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Les boites à bruits</td>
+                        <td>{{mss.noise_boxes}}</td>
+                    </tr>
+                    <tr>
+                        <td>Les clochettes</td>
+                        <td>{{mss.bells}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Olfactif</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Les odeurs</td>
+                      <td>{{mss.smells}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Gustatif</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Les saveurs</td>
+                        <td>{{mss.flavours}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Géographie</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Le globe lisse et rugueux</td>
+                      <td>{{mss.smooth_rough_globe}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le globe coloré</td>
+                      <td>{{mss.colorful_globe}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le planisphère</td>
+                      <td>{{mss.planisphere}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les puzzles des continents</td>
+                      <td>{{mss.puzzles_continents}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les drapeaux</td>
+                      <td>{{mss.flags}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les drapeaux : nomenclature classifiée</td>
+                      <td>{{mss.flags_1}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les contrastes de la terre et de l'eau</td>
+                      <td>{{mss.land_water}}</td>
+                    </tr>
+                    <tr>
+                      <td>La carte de l'Europe</td>
+                      <td>{{mss.europe}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Art</h2>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                      <td>Introduction à l'art</td>
+                      <td>{{mss.art}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Expériences scientifiques</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Les objects qui coulent, qui flottent</td>
+                      <td>{{mss.sink_float}}</td>
+                    </tr>
+                    <tr>
+                      <td>l'eau qui s'équilibre sur un plan horizontal</td>
+                      <td>{{mss.horizontal_water}}</td>
+                    </tr>
+                    <tr>
+                      <td>La direction du nord</td>
+                      <td>{{mss.north}}</td>
+                    </tr>
+                    <tr>
+                      <td>L'eau et l'air 1</td>
+                      <td>{{mss.water_air_1}}</td>
+                    </tr>
+                    <tr>
+                      <td>L'eau et l'air 2</td>
+                      <td>{{mss.water_air_2}}</td>
+                    </tr>
+                    <tr>
+                      <td>L'eau et l'air 3</td>
+                      <td>{{mss.water_air_3}}</td>
+                    </tr>
+                    <tr>
+                      <td>L'électricité</td>
+                      <td>{{mss.electricity}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les aimants 1</td>
+                      <td>{{mss.magnets_1}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les aimants 2</td>
+                      <td>{{mss.magnets_2}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h1>MATHEMATIQUES</h1>
+
+            <p><b>Trimestre 1</b> <br>{{mts.observations_1}}</p>
+            <p><b>Trimestre 2</b> <br>{{mts.observations_2}}</p>
+            <p><b>Trimestre 3</b> <br>{{mtss.observations_3}}</p>
+            <h2>Groupe 1 : Numération de 1 à 10</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Les barres numériques</td>
+                      <td>{{mts.number_bars}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les chiffres rugueux</td>
+                      <td>{{mts.rough_numbers}}</td>
+                    </tr>
+                    <tr>
+                      <td>Association barres et chiffres</td>
+                      <td>{{mts.bars_numbers}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les fuseaux</td>
+                      <td>{{mts.spindles}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le jeu des jetons</td>
+                      <td>{{mts.token_game}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le jeu de mémoire</td>
+                      <td>{{mts.memory_game}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Groupe 2 : Introduction au système décimal et aux opérations</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>SD : 1ère présentation, quantités</td>
+                      <td>{{mts.sd_quantity}}</td>
+                    </tr>
+                    <tr>
+                      <td>SD : 1ère présentation, symboles</td>
+                      <td>{{mts.sd_symbol}}</td>
+                    </tr>
+                    <tr>
+                      <td>SD : formation des grands nombres</td>
+                      <td>{{mts.sd_number}}</td>
+                    </tr>
+                    <tr>
+                      <td>Addition statique / dynamique</td>
+                      <td>{{mts.add_sd}}</td>
+                    </tr>
+                    <tr>
+                      <td>Soustraction statique / dynamique</td>
+                      <td>{{mts.sous_sd}}</td>
+                    </tr>
+                    <tr>
+                      <td>Multiplication statique / dynamique</td>
+                      <td>{{mts.multi_sd}}</td>
+                    </tr>
+                    <tr>
+                      <td>Division statique / dynamique</td>
+                      <td>{{mts.div_sd}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les timbres : addition S/D</td>
+                      <td>{{mts.stamps_add}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les timbres : soustraction S/D</td>
+                      <td>{{mts.stamps_sous}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les timbres : multiplication S/D</td>
+                      <td>{{mts.stamps_multi}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les timbres : division S/D</td>
+                      <td>{{mts.stamps_div}}</td>
+                    </tr>
+                    <tr>
+                      <td>La table des points</td>
+                      <td>{{mts.points_tables}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+           <h2>Groupe 3 : Numération de 11 à l'infini</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>11 à 19 : les quantités</td>
+                      <td>{{mts.quantity_11_19}}</td>
+                    </tr>
+                    <tr>
+                      <td>11 à 19 : la 1ère table de Seguin</td>
+                      <td>{{mts.seguin_11_19}}</td>
+                    </tr>
+                    <tr>
+                      <td>11 à 19 : asso quantités symboles</td>
+                      <td>{{mts.quantity_symbol_11_19}}</td>
+                    </tr>
+                    <tr>
+                      <td>11 à 99 : la 2ème table de Seguin</td>
+                      <td>{{mts.seguin_11_99}}</td>
+                    </tr>
+                    <tr>
+                      <td>La chaîne de 100</td>
+                      <td>{{mts.chain_100}}</td>
+                    </tr>
+                    <tr>
+                      <td>La chaîne de 1000</td>
+                      <td>{{mts.chain_1000}}</td>
+                    </tr>
+                    <tr>
+                      <td>La chaîne du carré</td>
+                      <td>{{mts.chain_square}}</td>
+                    </tr>
+                    <tr>
+                      <td>La chaîne du cube</td>
+                      <td>{{mts.chain_cube}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Groupe 4 : 11 à 19 association quantités symboles</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Le jeu du serpent de l'addition</td>
+                      <td>{{mts.snake_game_add}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le tableau de l'addition</td>
+                      <td>{{mts.add_table}}</td>
+                    </tr>
+                    <tr>
+                      <td>Tables mémo addition 1, 2, 3, 4</td>
+                      <td>{{mts.memo_add_table}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le jeu du serpent de la soustraction</td>
+                      <td>{{mts.snake_game_sous}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le tableau de la soustraction</td>
+                      <td>{{mts.sous_table}}</td>
+                    </tr>
+                    <tr>
+                      <td>Tables mémo soustraction 1, 2</td>
+                      <td>{{mts.memo_sous_table}}</td>
+                    </tr>
+                    <tr>
+                      <td>Mémo multiplication : perles couleur</td>
+                      <td>{{mts.memo_multi}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le tableau de la multiplication</td>
+                      <td>{{mts.multi_table}}</td>
+                    </tr>
+                    <tr>
+                      <td>Tables mémo multiplication 1, 2, 3</td>
+                      <td>{{mts.memo_multi_table}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le tableau de la division</td>
+                      <td>{{mts.div_table}}</td>
+                    </tr>
+                    <tr>
+                      <td>Tables mémo division 1, 2</td>
+                      <td>{{mts.memo_div_table}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Groupe 5 : Le passage à l'abstraction</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Petit boulier : présentation</td>
+                      <td>{{mts.little_abacus}}</td>
+                    </tr>
+                    <tr>
+                      <td>Petit boulier : addition S/D</td>
+                      <td>{{mts.little_abacus_add_sd}}</td>
+                    </tr>
+                    <tr>
+                      <td>Petit boulier : soustraction S/D</td>
+                      <td>{{mts.little_abacus_sous_sd}}</td>
+                    </tr>
+                    <tr>
+                      <td>Petit boulier : multiplication S/D</td>
+                      <td>{{mts.little_abacus_multi_sd}}</td>
+                    </tr>
+                    <tr>
+                      <td>Hiérarchies : quantités, symboles, association</td>
+                      <td>{{mts.hierarchies_quantity_symbol}}</td>
+                    </tr>
+                    <tr>
+                      <td>Grand boulier : présentation</td>
+                      <td>{{mts.large_abacus}}</td>
+                    </tr>
+                    <tr>
+                      <td>Grand boulier : addition S/D</td>
+                      <td>{{mts.large_add_sd}}</td>
+                    </tr>
+                    <tr>
+                      <td>Grand boulier : soustraction S/D</td>
+                      <td>{{mts.large_sous_sd}}</td>
+                    </tr>
+                    <tr>
+                      <td>Grand boulier : multiplication S/D</td>
+                      <td>{{mts.large_multi_sd}}</td>
+                    </tr>
+                    <tr>
+                      <td>La grande division avec tubes</td>
+                      <td>{{mts.div_tube}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Groupe 6 : Les fractions</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Les nommer</td>
+                      <td>{{mts.div_name}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les écrire</td>
+                      <td>{{mts.div_write}}</td>
+                    </tr>
+                    <tr>
+                      <td>Rechercher les équivalences</td>
+                      <td>{{mts.find_equivalences}}</td>
+                    </tr>
+                    <tr>
+                      <td>Faire des opérations</td>
+                      <td>{{mts.make_operations}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h1>LANGAGE</h1>
+            <p><b>Trimestre 1</b> <br>{{lang.observations_1}}</p>
+            <p><b>Trimestre 2</b> <br>{{lang.observations_2}}</p>
+            <p><b>Trimestre 3</b> <br>{{lang.observations_3}}</p>
+
+            <h2>Enrichissement du vocabulaire</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Images classifiées avant lecture</td>
+                      <td>{{lang.img_before_read}}</td>
+                    </tr>
+                    <tr>
+                      <td>Histoires racontées</td>
+                      <td>{{lang.stories_told}}</td>
+                    </tr>
+                    <tr>
+                      <td>Bibliothèques</td>
+                      <td>{{lang.libraries}}</td>
+                    </tr>
+                    <tr>
+                      <td>La ferme</td>
+                      <td>{{lang.farm}}</td>
+                    </tr>
+                    <tr>
+                      <td>Nomenclature avant lecture</td>
+                      <td>{{lang.nomenclature_before_read}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le jeu des questions</td>
+                      <td>{{lang.question_game}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Préparation écriture et lecture</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Le jeu d'analyse des sons</td>
+                      <td>{{lang.sound_analysis_game}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les lettres et diagrammes rugueux</td>
+                      <td>{{lang.rough_letters_diagrams}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les formes à dessins</td>
+                      <td>{{lang.design_shapes}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les alphabets mobiles 1 & 2</td>
+                      <td>{{lang.mobile_alphabets_1_2}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les ardoises</td>
+                      <td>{{lang.slates}}</td>
+                    </tr>
+                    <tr>
+                      <td>Ecrire : différents supports</td>
+                      <td>{{lang.write_different_media}}</td>
+                    </tr>
+                    <tr>
+                        <td>La 1ère boite d'objets</td>
+                        <td>{{lang.box_objects_1}}</td>
+                      </tr>
+                    <tr>
+                      <td>La 2ème boite d'objets</td>
+                      <td>{{lang.box_objects_2}}</td>
+                    </tr>
+                    <tr>
+                        <td>Les pochettes d'homophonies</td>
+                        <td>{{lang.homophony_covers}}</td>
+                      </tr>
+                    <tr>
+                      <td>Images classifiées après lecture</td>
+                      <td>{{lang.img_after_read}}</td>
+                    </tr>
+                    <tr>
+                        <td>Lire : différents supports</td>
+                        <td>{{lang.read_different_media}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>La nature des mots</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>L'article</td>
+                      <td>{{lang.article}}</td>
+                    </tr>
+                    <tr>
+                      <td>L'adjectif</td>
+                      <td>{{lang.adjective}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le jeu de l'adjectif logique</td>
+                      <td>{{lang.logical_adjective_game}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le jeu du détective</td>
+                      <td>{{lang.detective_game}}</td>
+                    </tr>
+                    <tr>
+                      <td>La conjonction</td>
+                      <td>{{lang.conjunction}}</td>
+                    </tr>
+                    <tr>
+                      <td>La préposition</td>
+                      <td>{{lang.preposition}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le jeu de la préposition logique</td>
+                      <td>{{lang.logical_preposition_game}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le verbe : différents aspects</td>
+                      <td>{{lang.verb}}</td>
+                    </tr>
+                    <tr>
+                      <td>L'adverbe</td>
+                      <td>{{lang.adverb}}</td>
+                    </tr>
+                    <tr>
+                      <td>Le jeu de l'adverbe logique</td>
+                      <td>{{lang.logical_adverb_game}}</td>
+                    </tr>
+                    <tr>
+                      <td>Les ordres 1, 2, 3</td>
+                      <td>{{lang.orders_123}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Etude de mots</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Singulier - pluriel</td>
+                      <td>{{lang.singular_plural}}</td>
+                    </tr>
+                    <tr>
+                      <td>Masculin - féminin</td>
+                      <td>{{lang.male_female}}</td>
+                    </tr>
+                    <tr>
+                      <td>Mots composés</td>
+                      <td>{{lang.compound_words}}</td>
+                    </tr>
+                    <tr>
+                      <td>Famille de mots</td>
+                      <td>{{lang.family_words}}</td>
+                    </tr>
+                    <tr>
+                      <td>Préfixes</td>
+                      <td>{{lang.prefixes}}</td>
+                    </tr>
+                    <tr>
+                      <td>Suffixes</td>
+                      <td>{{lang.suffixes}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Analyse de la lecture</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Analyse de la phrase, stade 1</td>
+                      <td>{{lang.sentence_analysis_1}}</td>
+                    </tr>
+                    <tr>
+                      <td>Analyse de la phrase, stade 2</td>
+                      <td>{{lang.sentence_analysis_2}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Musique</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Le nom des clochettes</td>
+                      <td>{{lang.name_bells}}</td>
+                    </tr>
+                    <tr>
+                      <td>Dièse et bémol</td>
+                      <td>{{lang.sharp_flat}}</td>
+                    </tr>
+                    <tr>
+                      <td>Lecture et écriture musicale</td>
+                      <td>{{lang.read_write_music}}</td>
+                    </tr>
+                    <tr>
+                      <td>La clé de Fa</td>
+                      <td>{{lang.bass_clef}}</td>
+                    </tr>
+                    <tr>
+                      <td>Lecture de partitions</td>
+                      <td>{{lang.read_sheet_music}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Lettres</h2>
+
+            <table class="table_letter">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>A</td>
+                      <td>{{lt.letter_a}}</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                      <td>{{lt.letter_b}}</td>
+                    </tr>
+                    <tr>
+                      <td>C</td>
+                      <td>{{lt.letter_c}}</td>
+                    </tr>
+                    <tr>
+                      <td>D</td>
+                      <td>{{lt.letter_d}}</td>
+                    </tr>
+                    <tr>
+                      <td>E</td>
+                      <td>{{lt.letter_e}}</td>
+                    </tr>
+                    <tr>
+                      <td>F</td>
+                      <td>{{lt.letter_f}}</td>
+                    </tr>
+                    <tr>
+                      <td>G</td>
+                      <td>{{lt.letter_g}}</td>
+                    </tr>
+                    <tr>
+                      <td>H</td>
+                      <td>{{lt.letter_h}}</td>
+                    </tr>
+                    <tr>
+                      <td>I</td>
+                      <td>{{lt.letter_i}}</td>
+                    </tr>
+                    <tr>
+                      <td>J</td>
+                      <td>{{lt.letter_j}}</td>
+                    </tr>
+                    <tr>
+                      <td>K</td>
+                      <td>{{lt.letter_k}}</td>
+                    </tr>
+                    <tr>
+                      <td>L</td>
+                      <td>{{lt.letter_l}}</td>
+                    </tr>
+                    <tr>
+                      <td>M</td>
+                      <td>{{lt.letter_m}}</td>
+                    </tr>
+                    <tr>
+                      <td>N</td>
+                      <td>{{lt.letter_n}}</td>
+                    </tr>
+                    <tr>
+                      <td>O</td>
+                      <td>{{lt.letter_o}}</td>
+                    </tr>
+                    <tr>
+                      <td>P</td>
+                      <td>{{lt.letter_p}}</td>
+                    </tr>
+                    <tr>
+                      <td>Q</td>
+                      <td>{{lt.letter_q}}</td>
+                    </tr>
+                    <tr>
+                      <td>R</td>
+                      <td>{{lt.letter_r}}</td>
+                    </tr>
+                    <tr>
+                      <td>S</td>
+                      <td>{{lt.letter_s}}</td>
+                    </tr>
+                    <tr>
+                      <td>T</td>
+                      <td>{{lt.letter_t}}</td>
+                    </tr>
+                    <tr>
+                      <td>U</td>
+                      <td>{{lt.letter_u}}</td>
+                    </tr>
+                    <tr>
+                      <td>V</td>
+                      <td>{{lt.letter_v}}</td>
+                    </tr>
+                    <tr>
+                      <td>W</td>
+                      <td>{{lt.letter_w}}</td>
+                    </tr>
+                    <tr>
+                      <td>X</td>
+                      <td>{{lt.letter_x}}</td>
+                    </tr>
+                    <tr>
+                      <td>Y</td>
+                      <td>{{lt.letter_y}}</td>
+                    </tr>
+                    <tr>
+                      <td>Z</td>
+                      <td>{{lt.letter_z}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+

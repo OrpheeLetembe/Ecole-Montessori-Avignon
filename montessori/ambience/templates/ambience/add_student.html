@@ -1,0 +1,16 @@
+{% extends "ambience/base.html" %}
+
+{% block title %}Ambiance inscription{% endblock %}
+
+{% block content %}
+<div class="col">
+        <a href="{% url 'ambience_detail' id=ambience.id%}">Retour</a>
+        <p>{{ message}}</p>
+        <form method='post' enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-outline-dark" type='submit' >Enregistrer</button>
+        </form>
+    </div>
+
+{% endblock content %}

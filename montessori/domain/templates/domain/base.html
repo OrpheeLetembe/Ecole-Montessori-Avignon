@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'domain/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'domain/css/styles.css'%}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="student_block">
+
+                <div class="student_menu">
+                    <div class="student_image">
+                        <img class="rounded-circle" src="{{student.photo.url}}" alt="">
+                    </div>
+                    <ul>
+                        <li>
+                        <a class="" href="#">Profil</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'practical_life' ambience_id=ambience.id student_id=student.id%}">Vie Pratique</a>
+                    </li>
+                    <li>
+                         <a href="{% url 'sensorial_mat' ambience_id=ambience.id student_id=student.id%}">Materiel Sensoriel</a>
+                    </li>
+                    <li>
+                         <a href="{% url 'mathes' ambience_id=ambience.id student_id=student.id%}">Mathématiques</a>
+                     </li>
+                    <li>
+                         <a href="{% url 'langage' ambience_id=ambience.id student_id=student.id%}">Langage</a>
+                     </li>
+                    <li>
+                         <a href="{% url 'print_choice' ambience_id=ambience.id student_id=student.id%}">Bilan</a>
+                     </li>
+                    <li>
+                         <a href="{% url 'student_case' ambience_id=ambience.id student_id=student.id%}">Dossier</a>
+                     </li>
+                    <li>
+                          <a href="{% url 'ambience_detail' id=ambience.id%}">{{ambience}}</a>
+                     </li>
+
+                    </ul>
+
+                </div>
+
+
+            <div class="domain_block">
+             {% block content %}{% endblock content %}
+            </div>
+
+        </div>
+            </div>
+
+
+
+
+
+    </body>
+</html>

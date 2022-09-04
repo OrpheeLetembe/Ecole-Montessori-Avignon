@@ -1,0 +1,29 @@
+.student_block {
+    display: flex;
+
+
+}
+
+.student_menu {
+  position: fixed;
+  left: 0;
+  width: 500px;
+  margin-top: 50px;
+  background: white;
+  padding: 10px;
+}
+
+.student_menu li {
+    list-style-type: none;
+}
+
+.student_image{
+    padding: 10px;
+
+}
+
+
+
+.domain_block {
+    z-index: 10;
+}

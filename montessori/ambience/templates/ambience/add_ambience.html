@@ -1,0 +1,21 @@
+{% extends "ambience/base.html" %}
+
+{% block title %}Ajouter une ambiance{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-2 block-ambience">
+        <a href="javascript:history.back()">Annuler</a>
+    </div>
+    <div class="col-10">
+            <p>{{ message}}</p>
+            <form method='post'>
+                {% csrf_token %}
+                {{ form.as_p}}
+                <button class="btn btn-outline-dark" type='submit' >Ajouter</button>
+            </form>
+        </div>
+
+</div>
+
+{% endblock content %}

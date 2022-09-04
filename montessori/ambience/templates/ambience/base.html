@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'ambience/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'ambience/css/styles.css'%}">
+    </head>
+    <body>
+            <header class="container">
+                <div>
+                     <img src="{% static 'ambience/logo.png' %}" alt="LOGO" width="200" >
+                </div>
+
+
+
+
+                    <ul class="menu">
+                        <li>
+                            <a href="#"> Profil </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logout' %}">Se déconnecter</a>
+                        </li>
+                    </ul>
+            </header>
+            <div class="container p-2 border border-success rounded">
+                {% block content %}{% endblock content %}
+            </div>
+    </body>
+</html>

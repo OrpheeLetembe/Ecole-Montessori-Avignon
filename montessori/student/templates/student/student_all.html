@@ -1,0 +1,25 @@
+{% extends "ambience/base.html" %}
+
+{% block title %}{{ambience}}{% endblock %}
+
+{% block content %}
+<div class="">
+    <a href="{% url 'ambience_detail' id=ambience.id%}">Retour</a>
+    <div class="box-ambience">
+        {% for student in students %}
+             <div class="student_box">
+                <div>
+                     <a href="">
+                     <img class="rounded-circle p-2 w-45 h-45" src="{{student.photo.url}}" alt="">
+                    </a>
+                </div>
+                <div class="pl-2">
+                    {{student}}
+                </div>
+        {% endfor %}
+    </div>
+    </div>
+
+</div>
+
+{% endblock content %}
