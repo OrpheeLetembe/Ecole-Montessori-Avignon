@@ -20,7 +20,7 @@ def ambiance_list_view(request):
 def ambiance_detail_view(request, id):
     user = request.user
     ambience = Ambience.objects.get(id=id)
-    students = Students.objects.filter(ambience=ambience)
+    students = Students.objects.filter(ambience=ambience).order_by('lastname')
     context = {
         'ambience': ambience,
         'students': students,

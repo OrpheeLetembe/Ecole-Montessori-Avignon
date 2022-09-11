@@ -7,7 +7,7 @@ from ambience.models import Ambience
 
 class Students(models.Model):
 
-    photo = models.ImageField(null=True, blank=True, upload_to='photos')
+    photo = models.ImageField(null=True, blank=True)
     firstname = models.CharField(max_length=25)
     lastname = models.CharField(max_length=25)
     date_of_birth = models.DateField()

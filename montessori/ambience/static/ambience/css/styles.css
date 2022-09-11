@@ -32,6 +32,7 @@ header {
 
 .box-ambience {
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0.5rem;
 
@@ -45,13 +46,23 @@ header {
 .item-ambience a {
     text-decoration: none;
 }
+.menu_inscription {
+    display: flex;
+    padding: 5px;
+
+}
 
 .menu_inscription li {
     list-style-type: none;
+    padding: 2px;
+    margin-left: 5px;
 }
 
 .student_box {
     display: flex;
     flex-direction: column;
     text-align: center;
+    width: 150px;
+
+
 }

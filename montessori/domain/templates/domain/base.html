@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="{% static 'domain/css/styles.css'%}">
     </head>
     <body>
-        <div class="container">
+        <div >
             <div class="student_block">
 
                 <div class="student_menu">
@@ -18,7 +18,7 @@
                     </div>
                     <ul>
                         <li>
-                        <a class="" href="#">Profil</a>
+                        <a href="{% url 'student_detail' ambience_id=ambience.id student_id=student.id %}">Profil</a>
                     </li>
                     <li>
                         <a href="{% url 'practical_life' ambience_id=ambience.id student_id=student.id%}">Vie Pratique</a>
@@ -47,7 +47,7 @@
                 </div>
 
 
-            <div class="domain_block">
+            <div class="container domain_block">
              {% block content %}{% endblock content %}
             </div>
 

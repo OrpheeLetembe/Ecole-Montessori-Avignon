@@ -13,21 +13,20 @@
          </ul>
 
     </div>
-    <div class="box-ambience">
+    <div class="box-ambience p-2 border border-success rounded">
         {% for student in students %}
             <div class="student_box">
                 <div>
                      <a href="{% url 'practical_life' ambience_id=ambience.id student_id=student.id%}">
                      <img class="rounded-circle p-2 w-45 h-45" src="{{student.photo.url}}" alt="">
                     </a>
-                </div>
-                <div class="pl-2">
-                    {{student}}
+                    <div class="pl-2">
+                        {{student}}
+                    </div>
                 </div>
 
             </div>
         {% endfor%}
-
     </div>
 
 </div>

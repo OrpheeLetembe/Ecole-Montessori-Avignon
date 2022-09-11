@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "domain/base.html" %}
 
-</body>
-</html>
+{% block title %}{{ student }}{% endblock %}
+
+{% block content %}
+<div>
+        <h3>Profil</h3>
+        <p>{{ message}}</p>
+        <form method='post' enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-outline-dark" type='submit' >Enregistré les modifications</button>
+        </form>
+    </div>
+
+{% endblock content %}
