@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 
 
 class LoginForm(forms.Form):
@@ -42,6 +42,37 @@ class SignUpForm(UserCreationForm):
         user.last_name = self.cleaned_data["last_name"]
         user.role = self.cleaned_data["role"]
         user.set_password(self.cleaned_data["password1"])
+        if commit:
+            user.save()
+        return user
+
+
+class EditProfileForm(UserChangeForm):
+    CHOICES = (
+        ('educator', 'Educatrice'),
+        ('assistant', 'Assistante')
+    )
+    username = forms.CharField(
+        required=True, label="Nom d'utilisateur",
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    first_name = forms.CharField(
+        label="Prénom", widget=forms.TextInput(attrs={"class": "form-control"}))
+    last_name = forms.CharField(
+        label="Nom", widget=forms.TextInput(attrs={"class": "form-control"}))
+    role = forms.ChoiceField(
+        label="Rôle", required=False,
+        choices=CHOICES, widget=forms.Select(attrs={"class": "form-control"}))
+
+    class Meta:
+        model = get_user_model()
+        fields = ['username', 'first_name', 'last_name', 'role']
+
+    def save(self, commit=True):
+
+        user = super().save(commit=False)
+        user.first_name = self.cleaned_data["first_name"]
+        user.last_name = self.cleaned_data["last_name"]
+        user.role = self.cleaned_data["role"]
         if commit:
             user.save()
         return user

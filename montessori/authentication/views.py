@@ -1,8 +1,9 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
 
-from .forms import SignUpForm, LoginForm
+from .forms import SignUpForm, LoginForm, EditProfileForm
 
 
 def signup_page_view(request):
@@ -59,3 +60,13 @@ def logout_page_view(request):
     logout(request)
     return redirect('login')
 
+
+@login_required
+def profile_page_view(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+    else:
+        form = EditProfileForm(instance=request.user)
+    return render(request, 'authentication/user_profil.html', {'form': form})
