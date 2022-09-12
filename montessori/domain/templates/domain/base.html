@@ -9,13 +9,31 @@
         <link rel="stylesheet" href="{% static 'domain/css/styles.css'%}">
     </head>
     <body>
-        <div >
-            <div class="student_block">
+        <nav class="navbar navbar-expand-lg bg-light sticky-top">
+  <div class="container-fluid">
+    <img class="rounded-circle" src="{{student.photo.url}}" alt="Photo">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'ambience_detail' id=ambience.id%}">{{ambience}}</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            IMPRIMER
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'print_choice' ambience_id=ambience.id student_id=student.id%}">Bilan</a></li>
+            <li><a class="dropdown-item" href="{% url 'student_case' ambience_id=ambience.id student_id=student.id%}">Dossier</a></li>
 
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        <div class="mt-10" >
+            <div class="student_block">
                 <div class="student_menu">
-                    <div class="student_image">
-                        <img class="rounded-circle" src="{{student.photo.url}}" alt="">
-                    </div>
                     <ul>
                         <li>
                         <a href="{% url 'student_detail' ambience_id=ambience.id student_id=student.id %}">Profil</a>
@@ -32,22 +50,11 @@
                     <li>
                          <a href="{% url 'langage' ambience_id=ambience.id student_id=student.id%}">Langage</a>
                      </li>
-                    <li>
-                         <a href="{% url 'print_choice' ambience_id=ambience.id student_id=student.id%}">Bilan</a>
-                     </li>
-                    <li>
-                         <a href="{% url 'student_case' ambience_id=ambience.id student_id=student.id%}">Dossier</a>
-                     </li>
-                    <li>
-                          <a href="{% url 'ambience_detail' id=ambience.id%}">{{ambience}}</a>
-                     </li>
-
                     </ul>
 
                 </div>
 
-
-            <div class="container domain_block">
+            <div class="container domain_block mb-2">
              {% block content %}{% endblock content %}
             </div>
 
@@ -57,6 +64,6 @@
 
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     </body>
 </html>

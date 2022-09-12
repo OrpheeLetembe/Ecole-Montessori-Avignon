@@ -5,16 +5,15 @@
 {% block content %}
 <div class="">
     <div class="block-ambience">
-        <a href="{% url 'add_ambience' %}">Ajouter une ambiance</a>
+        <a class="btn btn-outline-dark" href="{% url 'add_ambience' %}">Ajouter une ambiance</a>
     </div>
-    <div class="box-ambience">
+    <div class="box-ambience mt-5 border border-success rounded">
         {% for ambience in ambiences %}
-            <div class="item-ambience border border-success rounded">
+            <div class="item-ambience ">
                 <a href="{% url 'ambience_detail' id=ambience.id%}">{{ambience}}</a>
             </div>
         {% endfor %}
     </div>
-
 </div>
 
 {% endblock content %}

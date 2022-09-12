@@ -1,12 +1,12 @@
 {% extends "authentication/base.html" %}
 
-{% block title %}Connection{% endblock %}
+{% block title %}Page d'accueil{% endblock %}
 
 {% block content %}
 
 <div class="row">
     <div class="col">
-        <a href="{% url 'signup'%}">S'enregistrer</a>
+        <a class="btn btn-outline-dark" href="{% url 'signup'%}">S'enregistrer</a>
     </div>
     <div class="col">
         <p>{{ message}}</p>

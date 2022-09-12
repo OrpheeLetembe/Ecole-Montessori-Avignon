@@ -1,6 +1,7 @@
 .idea/
-db.sqlite3
+
 __pycache__/
-.env/
+env/
 .env
-.media/
+montessori/media/
+montessori/db.sqlite3

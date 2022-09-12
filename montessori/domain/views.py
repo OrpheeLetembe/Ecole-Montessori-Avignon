@@ -23,13 +23,6 @@ def get_student(id):
     student = Students.objects.get(id=id)
     return student
 
-def get_practical_life(student_id, ambience_id):
-    ambience = get_ambience(id=ambience_id)
-    date_start = ambience.date_start
-    student = get_student(id=student_id)
-    practical_life_student = PracticalLife.objects.get(Q(student=student) & Q(date_start=date_start))
-    return practical_life_student
-
 
 @login_required
 def practical_life_view(request, student_id, ambience_id):
@@ -40,7 +33,7 @@ def practical_life_view(request, student_id, ambience_id):
         form = forms.PracticalLifeForm(request.POST, instance=practical_life_student)
         if form.is_valid():
             form.save()
-            return redirect('practical_life', ambience_id=ambience_id, student_id=student_id)
+            #return redirect('practical_life', ambience_id=ambience_id, student_id=student_id)
     else:
         form = forms.PracticalLifeForm(instance=practical_life_student)
     context = {
@@ -62,7 +55,7 @@ def sensorial_mat_view(request, ambience_id, student_id):
         form = forms.SensoryMaterialForm(request.POST, instance=sensorial_mat_student)
         if form.is_valid():
             form.save()
-            return redirect('sensorial_mat', ambience_id=ambience_id, student_id=student_id)
+            #return redirect('sensorial_mat', ambience_id=ambience_id, student_id=student_id)
     else:
         form = forms.SensoryMaterialForm(instance=sensorial_mat_student)
     context = {
@@ -83,7 +76,7 @@ def mathematique_view(request, ambience_id, student_id):
         form = forms.MathForm(request.POST, instance=maths_student)
         if form.is_valid():
             form.save()
-            return redirect('mathes', ambience_id=ambience_id, student_id=student_id)
+            #return redirect('mathes', ambience_id=ambience_id, student_id=student_id)
     else:
         form = forms.MathForm(instance=maths_student)
     context = {
@@ -108,7 +101,7 @@ def langage_letter_view(request, ambience_id, student_id):
         if all([langage_form.is_valid(), letter_form.is_valid()]):
             langage_form.save()
             letter_form.save()
-            return redirect('Langage', ambience_id=ambience_id, student_id=student_id)
+            #return redirect('Langage', ambience_id=ambience_id, student_id=student_id)
     else:
         langage_form = forms.LangageForm(instance=langage_student)
         letter_form = forms.LetterForm(instance=letter_student)

@@ -1,9 +1,9 @@
 {% extends "authentication/base.html" %}
-{% block title %}Formulaire d'enregistrement{% endblock %}
+{% block title %}Enregistrement{% endblock %}
 {% block content %}
     <div class="row">
          <div class="col-2">
-            <a href="{% url 'login'%}">Retour</a>
+            <a class="btn btn-outline-dark" href="{% url 'login'%}">Retour</a>
         </div>
         <div class="col-8">
             {% if form.errors %}

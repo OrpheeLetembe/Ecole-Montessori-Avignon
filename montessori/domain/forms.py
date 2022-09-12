@@ -822,84 +822,84 @@ class LetterForm(forms.ModelForm):
         ('written', 'Ecrite')
 
     )
-    letter_a = forms.MultipleChoiceField(
-        label="A", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_b = forms.MultipleChoiceField(
-        label="B", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_c = forms.MultipleChoiceField(
-        label="C", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_d = forms.MultipleChoiceField(
-        label="D", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_e = forms.MultipleChoiceField(
-        label="E", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_f = forms.MultipleChoiceField(
-        label="F", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_g = forms.MultipleChoiceField(
-        label="G", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_h = forms.MultipleChoiceField(
-        label="H", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_i = forms.MultipleChoiceField(
-        label="I", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_j = forms.MultipleChoiceField(
-        label="J", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_k = forms.MultipleChoiceField(
-        label="K", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_l = forms.MultipleChoiceField(
-        label="L", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_m = forms.MultipleChoiceField(
-        label="M", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_n = forms.MultipleChoiceField(
-        label="N", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_o = forms.MultipleChoiceField(
-        label="O", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_p = forms.MultipleChoiceField(
-        label="P", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_q = forms.MultipleChoiceField(
-        label="Q", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_r = forms.MultipleChoiceField(
-        label="R", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_s = forms.MultipleChoiceField(
-        label="S", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_t = forms.MultipleChoiceField(
-        label="T", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_u = forms.MultipleChoiceField(
-        label="U", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_v = forms.MultipleChoiceField(
-        label="V", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_w = forms.MultipleChoiceField(
-        label="W", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_x = forms.MultipleChoiceField(
-        label="X", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_y = forms.MultipleChoiceField(
-        label="Y", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
-    letter_z = forms.MultipleChoiceField(
-        label="Z", required=False, choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'inline'}))
+    letter_a = forms.CharField(
+        label="A", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_b = forms.CharField(
+        label="B", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_c = forms.CharField(
+        label="C", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_d = forms.CharField(
+        label="D", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_e = forms.CharField(
+        label="E", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_f = forms.CharField(
+        label="F", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_g = forms.CharField(
+        label="G", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_h = forms.CharField(
+        label="H", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_i = forms.CharField(
+        label="I", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_j = forms.CharField(
+        label="J", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_k = forms.CharField(
+        label="K", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_l = forms.CharField(
+        label="L", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_m = forms.CharField(
+        label="M", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_n = forms.CharField(
+        label="N", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_o = forms.CharField(
+        label="O", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_p = forms.CharField(
+        label="P", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_q = forms.CharField(
+        label="Q", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_r = forms.CharField(
+        label="R", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_s = forms.CharField(
+        label="S", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_t = forms.CharField(
+        label="T", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_u = forms.CharField(
+        label="U", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_v = forms.CharField(
+        label="V", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_w = forms.CharField(
+        label="W", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_x = forms.CharField(
+        label="X", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_y = forms.CharField(
+        label="Y", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+    letter_z = forms.CharField(
+        label="Z", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
 
     class Meta:
         model = Letter
