@@ -7,9 +7,8 @@
     <div class="block-ambience">
         {{ambience}}
          <ul class="menu_inscription">
-                <li class="btn btn-outline-dark"><a href="{% url 'add_student' id=ambience.id%}">Inscription</a> </li>
+                <li class="btn btn-outline-dark"><a href="{% url 'add_student' id=ambience.id%}">Inscription</a></li>
                 <li class="btn btn-outline-dark"><a href="{% url 'student_list' ambience_id=ambience.id%}">Réinscription</a></li>
-
          </ul>
 
     </div>

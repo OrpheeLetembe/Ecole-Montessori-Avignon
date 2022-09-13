@@ -5,7 +5,7 @@
 {% block content %}
 <div class="">
     <a href="{% url 'ambience_detail' id=ambience.id%}">Retour</a>
-    <div class="box-ambience">
+    <div class="box-ambience box-ambience p-2 border border-success rounded">
         {% for student in students %}
              <div class="student_box">
                 <div>
@@ -16,8 +16,9 @@
                 <div class="pl-2">
                     {{student}}
                 </div>
+             </div>
         {% endfor %}
-    </div>
+
     </div>
 
 </div>

@@ -62,17 +62,23 @@ class EditProfileForm(UserChangeForm):
     role = forms.ChoiceField(
         label="Rôle", required=False,
         choices=CHOICES, widget=forms.Select(attrs={"class": "form-control"}))
+    password = None
 
     class Meta:
         model = get_user_model()
         fields = ['username', 'first_name', 'last_name', 'role']
 
-    def save(self, commit=True):
 
-        user = super().save(commit=False)
-        user.first_name = self.cleaned_data["first_name"]
-        user.last_name = self.cleaned_data["last_name"]
-        user.role = self.cleaned_data["role"]
-        if commit:
-            user.save()
-        return user
+class ChangePasswordsForm(PasswordChangeForm):
+    old_password = forms.CharField(
+        label="Ancien mot de passe", widget=forms.PasswordInput(attrs={"class": "form-control"}))
+
+    new_password1 = forms.CharField(
+        label="Nouveau mot de passe", widget=forms.PasswordInput(attrs={"class": "form-control"}))
+    new_password2 = forms.CharField(
+        label="Confirmation nouveau mot de passe",
+        widget=forms.PasswordInput(attrs={"class": "form-control"}))
+
+    class Meta:
+        model = get_user_model()
+        fields = ['old_password', 'new_password1', 'new_password2']

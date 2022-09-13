@@ -1,9 +1,9 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
 
-from .forms import SignUpForm, LoginForm, EditProfileForm
+from .forms import SignUpForm, LoginForm, EditProfileForm, ChangePasswordsForm
 
 
 def signup_page_view(request):
@@ -70,3 +70,16 @@ def profile_page_view(request):
     else:
         form = EditProfileForm(instance=request.user)
     return render(request, 'authentication/user_profil.html', {'form': form})
+
+@login_required
+def change_password_view(request):
+    if request.method == 'POST':
+        form = ChangePasswordsForm(request.user, request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('user_profil')
+    else:
+        form = ChangePasswordsForm(request.user)
+
+    return render(request, 'authentication/change_password.html', {'form': form})
