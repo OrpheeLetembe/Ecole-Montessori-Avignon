@@ -5,14 +5,21 @@ from PIL import Image
 from ambience.models import Ambience
 
 
-class Students(models.Model):
+class BaseModel(models.Model):
+    objects = models.Manager()
+
+    class Meta:
+        abstract = True
+
+
+class Students(BaseModel):
 
     photo = models.ImageField(null=True, blank=True)
     firstname = models.CharField(max_length=25)
     lastname = models.CharField(max_length=25)
     date_of_birth = models.DateField()
     profil = models.TextField()
-    ambience = models.ForeignKey(Ambience, on_delete=models.CASCADE)
+    ambience = models.ManyToManyField(Ambience)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
@@ -33,6 +40,3 @@ class Students(models.Model):
 
     def __str__(self):
         return f'{self.firstname} {self.lastname}'
-
-
-

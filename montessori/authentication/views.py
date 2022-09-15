@@ -24,7 +24,7 @@ def signup_page_view(request):
 
 
 def login_page_view(request):
-    """"
+    """
     his function allows a registered user to log in.
     After verifying his credentials,
     the user is redirected to the ambiances page if they are correct.
@@ -70,6 +70,7 @@ def profile_page_view(request):
     else:
         form = EditProfileForm(instance=request.user)
     return render(request, 'authentication/user_profil.html', {'form': form})
+
 
 @login_required
 def change_password_view(request):

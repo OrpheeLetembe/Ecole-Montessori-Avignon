@@ -4,7 +4,7 @@
 
 {% block content %}
         <div>
-                <a href="{% url 'ambience_detail' id=ambience.id%}">Retour</a>
+                <a href="{% url 'ambience_detail' pk=ambience.id%}">Retour</a>
                 <p>{{ message}}</p>
                 <form method='post' enctype="multipart/form-data">
                         {% csrf_token %}

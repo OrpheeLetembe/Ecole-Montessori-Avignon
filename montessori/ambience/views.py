@@ -17,9 +17,9 @@ def ambiance_list_view(request):
 
 
 @login_required
-def ambiance_detail_view(request, id):
+def ambiance_detail_view(request, pk):
     user = request.user
-    ambience = Ambience.objects.get(id=id)
+    ambience = Ambience.objects.get(id=pk)
     students = Students.objects.filter(ambience=ambience).order_by('lastname')
     context = {
         'ambience': ambience,
@@ -48,19 +48,20 @@ def add_ambiance_view(request):
     return render(request, 'ambience/add_ambience.html', context=context)
 
 
-def add_student_view(request, id):
+@login_required
+def add_new_student_view(request, pk):
     """
         This function allows the creation of a new child object,
         as well as the creation of the practical life, sensory material,
         mathematics, language and letter objects associated with it
         """
-    ambience = Ambience.objects.get(id=id)
+    ambience = Ambience.objects.get(id=pk)
     form = StudentForm()
     if request.method == 'POST':
         form = StudentForm(request.POST, request.FILES)
         if form.is_valid():
             student = form.save(commit=False)
-            student.ambience = ambience
+            student.ambience.add(ambience)
             student.save()
 
             PracticalLife.objects.create(student=student, date_start=ambience.date_start)
@@ -79,3 +80,10 @@ def add_student_view(request, id):
     return render(request, 'ambience/add_student.html', context=context)
 
 
+@login_required
+def change_ambience_student_view(request, ambience_id, student_id):
+    ambience = Ambience.objects.get(id=ambience_id)
+    student = Students.objects.get(id=student_id)
+    student.ambience.add(ambience)
+    student.save()
+    return redirect('student_list', ambience_id=ambience.id)

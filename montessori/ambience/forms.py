@@ -13,10 +13,12 @@ class AmbienceForm(forms.ModelForm):
     name = forms.ChoiceField(
         label="Nom",
         choices=ENVIRONMENT_CHOICES)
-    date_start = forms.CharField(
-        label="Début", widget=forms.TextInput(attrs={"class": "form-control"}))
-    date_end = forms.CharField(
-        label="Fin", widget=forms.TextInput(attrs={"class": "form-control"}))
+    date_start = forms.DateField(label="Date de début",
+                                 widget=forms.DateInput( attrs={"class": "form-control",
+                                                                'placeholder': 'jour/mois/année'}))
+    date_end = forms.DateField(label="Date de fin",
+                               widget=forms.DateInput(attrs={"class": "form-control",
+                                                             'placeholder': 'jour/mois/année'}))
 
     class Meta:
         model = Ambience

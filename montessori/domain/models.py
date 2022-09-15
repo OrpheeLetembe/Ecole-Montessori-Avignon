@@ -3,7 +3,14 @@ from django.db import models
 from student.models import Students
 
 
-class PracticalLife(models.Model):
+class BaseModel(models.Model):
+    objects = models.Manager()
+
+    class Meta:
+        abstract = True
+
+
+class PracticalLife(BaseModel):
 
     student = models.ForeignKey(Students, on_delete=models.CASCADE)
     date_start = models.CharField(max_length=5)
@@ -132,7 +139,7 @@ class PracticalLife(models.Model):
         verbose_name_plural = "Vie Pratique"
 
 
-class SensoryMaterial(models.Model):
+class SensoryMaterial(BaseModel):
     student = models.ForeignKey(Students, on_delete=models.CASCADE)
     date_start = models.CharField(max_length=5)
 
@@ -315,7 +322,7 @@ class SensoryMaterial(models.Model):
         verbose_name_plural = "Materiel sensoriel"
 
 
-class Math(models.Model):
+class Math(BaseModel):
     student = models.ForeignKey(Students, on_delete=models.CASCADE)
     date_start = models.CharField(max_length=5)
 
@@ -464,7 +471,7 @@ class Math(models.Model):
         verbose_name_plural = "Mathématiques"
 
 
-class Langage(models.Model):
+class Langage(BaseModel):
     student = models.ForeignKey(Students, on_delete=models.CASCADE)
     date_start = models.CharField(max_length=5)
 
@@ -600,7 +607,7 @@ class Langage(models.Model):
         verbose_name_plural = "Langage"
 
 
-class Letter(models.Model):
+class Letter(BaseModel):
     student = models.ForeignKey(Students, on_delete=models.CASCADE)
     date_start = models.CharField(max_length=5)
     letter_a = models.CharField(
@@ -660,5 +667,3 @@ class Letter(models.Model):
     class Meta:
         verbose_name = "Lettre"
         verbose_name_plural = "Lettres"
-
-

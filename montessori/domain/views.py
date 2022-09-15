@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-import os
 import datetime
 from django.http import HttpResponse
 from django.template.loader import get_template
@@ -14,26 +13,25 @@ from ambience.models import Ambience
 from . import forms
 
 
-def get_ambience(id):
-    ambience = Ambience.objects.get(id=id)
+def get_ambience(pk):
+    ambience = Ambience.objects.get(id=pk)
     return ambience
 
 
-def get_student(id):
-    student = Students.objects.get(id=id)
+def get_student(pk):
+    student = Students.objects.get(id=pk)
     return student
 
 
 @login_required
 def practical_life_view(request, student_id, ambience_id):
-    ambience = get_ambience(id=ambience_id)
-    student = get_student(id=student_id)
+    ambience = get_ambience(pk=ambience_id)
+    student = get_student(pk=student_id)
     practical_life_student = PracticalLife.objects.get(Q(student=student) & Q(date_start=ambience.date_start))
     if request.method == 'POST':
         form = forms.PracticalLifeForm(request.POST, instance=practical_life_student)
         if form.is_valid():
             form.save()
-            #return redirect('practical_life', ambience_id=ambience_id, student_id=student_id)
     else:
         form = forms.PracticalLifeForm(instance=practical_life_student)
     context = {
@@ -47,15 +45,14 @@ def practical_life_view(request, student_id, ambience_id):
 
 @login_required
 def sensorial_mat_view(request, ambience_id, student_id):
-    ambience = get_ambience(id=ambience_id)
-    student = get_student(id=student_id)
+    ambience = get_ambience(pk=ambience_id)
+    student = get_student(pk=student_id)
     sensorial_mat_student = SensoryMaterial.objects.get(Q(student=student) &
                                                         Q(date_start=ambience.date_start))
     if request.method == 'POST':
         form = forms.SensoryMaterialForm(request.POST, instance=sensorial_mat_student)
         if form.is_valid():
             form.save()
-            #return redirect('sensorial_mat', ambience_id=ambience_id, student_id=student_id)
     else:
         form = forms.SensoryMaterialForm(instance=sensorial_mat_student)
     context = {
@@ -69,14 +66,13 @@ def sensorial_mat_view(request, ambience_id, student_id):
 
 @login_required
 def mathematique_view(request, ambience_id, student_id):
-    ambience = get_ambience(id=ambience_id)
-    student = get_student(id=student_id)
+    ambience = get_ambience(pk=ambience_id)
+    student = get_student(pk=student_id)
     maths_student = Math.objects.get(Q(student=student) & Q(date_start=ambience.date_start))
     if request.method == 'POST':
         form = forms.MathForm(request.POST, instance=maths_student)
         if form.is_valid():
             form.save()
-            #return redirect('mathes', ambience_id=ambience_id, student_id=student_id)
     else:
         form = forms.MathForm(instance=maths_student)
     context = {
@@ -90,8 +86,8 @@ def mathematique_view(request, ambience_id, student_id):
 
 @login_required
 def langage_letter_view(request, ambience_id, student_id):
-    ambience = get_ambience(id=ambience_id)
-    student = get_student(id=student_id)
+    ambience = get_ambience(pk=ambience_id)
+    student = get_student(pk=student_id)
     langage_student = Langage.objects.get(Q(student=student) & Q(date_start=ambience.date_start))
     letter_student = Letter.objects.get(Q(student=student) & Q(date_start=ambience.date_start))
 
@@ -101,7 +97,6 @@ def langage_letter_view(request, ambience_id, student_id):
         if all([langage_form.is_valid(), letter_form.is_valid()]):
             langage_form.save()
             letter_form.save()
-            #return redirect('Langage', ambience_id=ambience_id, student_id=student_id)
     else:
         langage_form = forms.LangageForm(instance=langage_student)
         letter_form = forms.LetterForm(instance=letter_student)
@@ -118,8 +113,8 @@ def langage_letter_view(request, ambience_id, student_id):
 
 @login_required
 def show_case_view(request, ambience_id, student_id):
-    ambience = get_ambience(id=ambience_id)
-    student = get_student(id=student_id)
+    ambience = get_ambience(pk=ambience_id)
+    student = get_student(pk=student_id)
     practical_life_student = PracticalLife.objects.get(Q(student=student) &
                                                        Q(date_start=ambience.date_start))
     sensorial_mat_student = SensoryMaterial.objects.get(Q(student=student) &
@@ -150,8 +145,8 @@ def show_case_view(request, ambience_id, student_id):
 @login_required
 def print_student_case_view(request, ambience_id, student_id):
     """ This function allows the export of a child’s file in pdf format."""
-    ambience = get_ambience(id=ambience_id)
-    student = get_student(id=student_id)
+    ambience = get_ambience(pk=ambience_id)
+    student = get_student(pk=student_id)
     practical_life_student = PracticalLife.objects.get(Q(student=student) & Q(date_start=ambience.date_start))
     sensorial_mat_student = SensoryMaterial.objects.get(Q(student=student) & Q(date_start=ambience.date_start))
     maths_student = Math.objects.get(Q(student=student) & Q(date_start=ambience.date_start))
@@ -211,8 +206,8 @@ def trim_choice(data, activity):
 def student_bilan_pdf_view(request, ambience_id, student_id):
     """ This function allows the creation of a child’s report in pdf format."""
     user = request.user
-    ambience = get_ambience(id=ambience_id)
-    student = get_student(id=student_id)
+    ambience = get_ambience(pk=ambience_id)
+    student = get_student(pk=student_id)
     practical_life_student = PracticalLife.objects.get(Q(student=student) & Q(date_start=ambience.date_start))
     sensorial_mat_student = SensoryMaterial.objects.get(Q(student=student) & Q(date_start=ambience.date_start))
     maths_student = Math.objects.get(Q(student=student) & Q(date_start=ambience.date_start))

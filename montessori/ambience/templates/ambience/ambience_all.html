@@ -10,7 +10,7 @@
     <div class="box-ambience mt-5 border border-success rounded">
         {% for ambience in ambiences %}
             <div class="item-ambience ">
-                <a href="{% url 'ambience_detail' id=ambience.id%}">{{ambience}}</a>
+                <a href="{% url 'ambience_detail' pk=ambience.id%}">{{ambience}}</a>
             </div>
         {% endfor %}
     </div>
