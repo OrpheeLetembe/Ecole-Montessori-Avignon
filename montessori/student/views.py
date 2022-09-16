@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.db.models import Q
+from datetime import date
 
 from .models import Students
 from ambience.models import Ambience
@@ -28,8 +29,8 @@ def student_re_registration_view(request, ambience_id):
 
 @login_required
 def student_detail_view(request, student_id, ambience_id):
+    today = date.today()
     ambience = Ambience.objects.get(id=ambience_id)
-
     student = Students.objects.get(id=student_id)
     ambiences = Ambience.objects.filter(~Q(id=ambience.id) & Q(students=student))
     if request.method == 'POST':
@@ -42,7 +43,8 @@ def student_detail_view(request, student_id, ambience_id):
         'form': form,
         'ambience': ambience,
         'ambiences': ambiences,
-        'student': student
+        'student': student,
+        'today': today
     }
 
     return render(request, 'student/student_profil.html', context=context)

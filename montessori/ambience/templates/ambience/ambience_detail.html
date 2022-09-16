@@ -18,9 +18,16 @@
         {% for student in students %}
             <div class="student_box">
                 <div>
-                     <a href="{% url 'practical_life' ambience_id=ambience.id student_id=student.id%}">
-                     <img class="rounded-circle p-2 w-45 h-45" src="{{student.photo.url}}" alt="">
-                    </a>
+                    {% if ambience.date_end > today %}
+                         <a href="{% url 'practical_life' ambience_id=ambience.id student_id=student.id%}">
+                         <img class="rounded-circle p-2 w-45 h-45" src="{{student.photo.url}}" alt="">
+                        </a>
+                    {% else %}
+                        <a href="{% url 'student_case' ambience_id=ambience.id student_id=student.id%}">
+                             <img class="rounded-circle p-2 w-45 h-45" src="{{student.photo.url}}" alt="">
+                            </a>
+                    {% endif %}
+
                     <div class="pl-2">
                         {{student}}
                     </div>

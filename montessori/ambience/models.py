@@ -18,7 +18,8 @@ class Ambience(BaseModel):
     name = models.CharField(max_length=20, choices=ENVIRONMENT_CHOICES, verbose_name="Ambiance")
     date_start = models.DateField(verbose_name="Date de début")
     date_end = models.DateField(verbose_name="Date de fin")
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="utilisateur")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+                             verbose_name="utilisateur")
     note = models.TextField(default='observations', verbose_name="Note")
 
     def get_year(self):

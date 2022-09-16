@@ -1,6 +1,6 @@
 {% extends "ambience/base.html" %}
 
-{% block title %}{{ student }}{% endblock %}
+{% block title %}{{ ambience }}{% endblock %}
 
 {% block content %}
 <div>
@@ -9,8 +9,11 @@
         <form method='post' enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button class="btn btn-outline-dark" type='submit' >Enregistré les modifications</button>
+                {% if request.user == ambience.user %}
+                        <button class="btn btn-outline-dark" type='submit' >Enregistré les modifications</button>
+                {% endif %}
         </form>
+
         <div>
             <a href="{% url 'ambience_detail' pk=ambience.id%}">Retour</a>
         </div>

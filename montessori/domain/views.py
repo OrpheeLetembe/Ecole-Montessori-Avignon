@@ -6,11 +6,16 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 
+from django.conf import settings
+
 
 from .models import PracticalLife, SensoryMaterial, Math, Langage, Letter
 from student.models import Students
 from ambience.models import Ambience
 from . import forms
+
+
+TODAY = datetime.date.today()
 
 
 def get_ambience(pk):
@@ -28,7 +33,8 @@ def practical_life_view(request, student_id, ambience_id):
     ambience = get_ambience(pk=ambience_id)
     date_start = str(ambience.date_start)[:4]
     student = get_student(pk=student_id)
-    practical_life_student = PracticalLife.objects.get(Q(student=student) & Q(date_start=date_start))
+    practical_life_student = PracticalLife.objects.get(Q(student=student) &
+                                                       Q(date_start=date_start))
     if request.method == 'POST':
         form = forms.PracticalLifeForm(request.POST, instance=practical_life_student)
         if form.is_valid():
@@ -39,7 +45,8 @@ def practical_life_view(request, student_id, ambience_id):
         'form': form,
         'pls': practical_life_student,
         'student': student,
-        'ambience': ambience
+        'ambience': ambience,
+        'today': TODAY
     }
     return render(request, 'domain/practical_life.html', context)
 
@@ -61,7 +68,8 @@ def sensorial_mat_view(request, ambience_id, student_id):
         'form': form,
         'mss': sensorial_mat_student,
         'student': student,
-        'ambience': ambience
+        'ambience': ambience,
+        'today': TODAY
     }
     return render(request, 'domain/sensorial_mat.html', context)
 
@@ -82,7 +90,8 @@ def mathematique_view(request, ambience_id, student_id):
         'form': form,
         'mts': maths_student,
         'student': student,
-        'ambience': ambience
+        'ambience': ambience,
+        'today': TODAY
     }
     return render(request, 'domain/mathes.html', context)
 
@@ -110,7 +119,8 @@ def langage_letter_view(request, ambience_id, student_id):
         'letter_form': letter_form,
         'mts': langage_student,
         'student': student,
-        'ambience': ambience
+        'ambience': ambience,
+        'today': TODAY
     }
     return render(request, 'domain/langage.html', context)
 
@@ -141,7 +151,8 @@ def show_case_view(request, ambience_id, student_id):
         'mts': mathes,
         'lang': lang,
         'lt': lt,
-        'ambience': ambience
+        'ambience': ambience,
+        'today': TODAY
     }
 
     return render(request, 'domain/student_case.html', context=context)
@@ -153,8 +164,10 @@ def print_student_case_view(request, ambience_id, student_id):
     ambience = get_ambience(pk=ambience_id)
     date_start = str(ambience.date_start)[:4]
     student = get_student(pk=student_id)
-    practical_life_student = PracticalLife.objects.get(Q(student=student) & Q(date_start=date_start))
-    sensorial_mat_student = SensoryMaterial.objects.get(Q(student=student) & Q(date_start=date_start))
+    practical_life_student = PracticalLife.objects.get(Q(student=student) &
+                                                       Q(date_start=date_start))
+    sensorial_mat_student = SensoryMaterial.objects.get(Q(student=student) &
+                                                        Q(date_start=date_start))
     maths_student = Math.objects.get(Q(student=student) & Q(date_start=date_start))
     langage_student = Langage.objects.get(Q(student=student) & Q(date_start=date_start))
     letter_student = Letter.objects.get(Q(student=student) & Q(date_start=date_start))
@@ -172,7 +185,8 @@ def print_student_case_view(request, ambience_id, student_id):
         'mts': mathes,
         'lang': lang,
         'lt': lt,
-        'ambience': ambience
+        'ambience': ambience,
+        'STATIC_ROOT': settings.STATIC_ROOT
     }
     response = HttpResponse(content_type='application/pdf')
     filename = "{}_{}".format(student, student.ambience)
@@ -215,8 +229,10 @@ def student_bilan_pdf_view(request, ambience_id, student_id):
     ambience = get_ambience(pk=ambience_id)
     date_start = str(ambience.date_start)[:4]
     student = get_student(pk=student_id)
-    practical_life_student = PracticalLife.objects.get(Q(student=student) & Q(date_start=date_start))
-    sensorial_mat_student = SensoryMaterial.objects.get(Q(student=student) & Q(date_start=date_start))
+    practical_life_student = PracticalLife.objects.get(Q(student=student) &
+                                                       Q(date_start=date_start))
+    sensorial_mat_student = SensoryMaterial.objects.get(Q(student=student) &
+                                                        Q(date_start=date_start))
     maths_student = Math.objects.get(Q(student=student) & Q(date_start=date_start))
     langage_student = Langage.objects.get(Q(student=student) & Q(date_start=date_start))
 

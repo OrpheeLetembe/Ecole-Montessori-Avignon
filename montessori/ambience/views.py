@@ -15,7 +15,7 @@ from student.forms import StudentForm
 def ambiance_list_view(request):
     """ This function allows you to get the list of atmospheres, the most recent ones first."""
     user = request.user
-    ambiences = Ambience.objects.filter(user=user).order_by('-date_start')
+    ambiences = Ambience.objects.all().order_by('-date_start')
     return render(request, 'ambience/ambience_all.html', {'ambiences': ambiences})
 
 
@@ -111,7 +111,7 @@ def copy_and_save_domaine(domain, date_start):
     new_domain = deepcopy(domain)
     new_domain.pk = None
     new_domain.date_start = date_start
-    new_domain.save()
+
     return new_domain
 
 
@@ -121,6 +121,7 @@ def change_ambience_student_view(request, ambience_id, student_id):
     old_date = int(str(ambience.date_start)[:4]) - 1
     new_date = str(ambience.date_start)[:4]
     student = Students.objects.get(id=student_id)
+
     student.ambience.add(ambience)
     student.save()
     practical_life_student = PracticalLife.objects.get(Q(student=student) &
@@ -136,5 +137,11 @@ def change_ambience_student_view(request, ambience_id, student_id):
     new_maths_student = copy_and_save_domaine(maths_student, new_date)
     new_langage_student = copy_and_save_domaine(langage_student, new_date)
     new_letter_student = copy_and_save_domaine(letter_student, new_date)
+
+    new_practical_life_student.save()
+    new_sensorial_mat_student.save()
+    new_maths_student.save()
+    new_langage_student.save()
+    new_letter_student.save()
 
     return redirect('student_list', ambience_id=ambience.id)

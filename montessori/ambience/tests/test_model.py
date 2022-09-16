@@ -21,10 +21,11 @@ def test_ambience_str():
 
     ambience = Ambience.objects.create(
         name='Terre',
-        date_start='2022',
-        date_end='2023',
+        date_start='2022-01-09',
+        date_end='2023-05-10',
         user=user,
 
     )
 
-    assert str(ambience) == f'{ambience.name} {ambience.date_start}-{ambience.date_end}'
+    assert str(ambience) == f'{ambience.name} ' \
+                            f'{str(ambience.date_start)[:4]}-{str(ambience.date_end)[:4]}'

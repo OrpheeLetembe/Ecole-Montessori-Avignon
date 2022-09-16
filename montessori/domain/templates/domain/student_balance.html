@@ -25,6 +25,12 @@
                text-align: center;
                padding: 10px 20px 0px 20px;
             }
+            .header{
+                padding-top: 10pt;
+                text-align: center;
+                background-color: #C9CFCF;
+
+            }
 
             .title span {
                 color: #007cae;
@@ -58,10 +64,13 @@
     </head>
     <body>
         <div class="header" >
-            <img src="static/logo.png" alt="LOGO" class="img-fluid" width="200" >
+            <p>ECOLE MONTESSORI " LA MAISON DES ENFANTS "<br>
+            210b route de Montfavet<br>
+            84000 Avignon</p>
+            <img src="{{ STATIC_ROOT }}\authentication\images\logo.png" alt="LOGO" class="img-fluid " width="200" >
         </div>
             <p class="date">Avignon, le {{today}}</p>
-            <p class="title">BILAN - Année scolaire {{student.ambience.date_strat}}/{{student.ambience.date_end}}</p>
+            <p class="title">BILAN - {{ ambience }}</p>
 
         <div class="row">
             <div class=detail">

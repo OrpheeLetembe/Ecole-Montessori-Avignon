@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
@@ -17,6 +18,7 @@
             }
             .photo {
                  text-align: left;
+
             }
             .title {
                 font-size: 22px;
@@ -40,9 +42,15 @@
             padding-top: 2pt;
             text-align: center;
            }
+            .header{
+                padding-top: 10pt;
+                text-align: center;
+                background-color: #C9CFCF;
 
+            }
             .profil {
                 text-align: left !important;
+
 
             }
             .hrItem {
@@ -60,9 +68,12 @@
     </head>
     <body>
         <div class="header" >
-            <img src="static/logo.png" alt="LOGO" class="img-fluid" width="200" >
+            <p>ECOLE MONTESSORI " LA MAISON DES ENFANTS "<br>
+            210b route de Montfavet<br>
+            84000 Avignon</p>
+            <img src="{{ STATIC_ROOT }}\authentication\images\logo.png" alt="LOGO" class="img-fluid " width="200" >
         </div>
-        <p class="title">ANNE SCOLAIRE {{student.ambience.date_start}}/{{student.ambience.date_end}}</p>
+        <p class="title">{{ ambience }}</p>
         <div class="photo">
             <img src="{{student.photo.path}}" alt="Photo" class="img-fluid " width="100" >
             <p>{{student.firstname}} {{student.lastname}} <br> Date de naissance: {{student.date_of_birth}}</p>

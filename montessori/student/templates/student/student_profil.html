@@ -3,20 +3,19 @@
 {% block title %}{{ student }}{% endblock %}
 
 {% block content %}
-<div>
-        <h3>Profil</h3>
-        <p>{{ message}}</p>
-        <form method='post' enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button class="btn btn-outline-dark" type='submit' >Enregistré les modifications</button>
-        </form>
         <div>
-                {% for ambience in ambiences %}
-                <a href="{% url 'student_case' ambience_id=ambience.id student_id=student.id%}">{{ ambience }}</a>
-
-                {% endfor %}
+                <h3>Profil</h3>
+                <p>{{ message}}</p>
+                <form method='post' enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="btn btn-outline-dark" type='submit' >Enregistré les modifications</button>
+                </form>
+                <div>
+                        {% for ambience in ambiences %}
+                        <a href="{% url 'student_case' ambience_id=ambience.id student_id=student.id%}">{{ ambience }}</a>
+                        {% endfor %}
+                </div>
         </div>
-    </div>
 
 {% endblock content %}

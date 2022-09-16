@@ -9,4 +9,3 @@ class AmbienceAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Ambience, AmbienceAdmin)
-

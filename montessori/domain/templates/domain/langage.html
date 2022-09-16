@@ -17,7 +17,9 @@
        <table class="table table-bordered">
             {{letter_form.as_table}}
         </table>
-        <button class="btn btn-outline-dark" type='submit' >Enregistrer</button>
+        {% if request.user == ambience.user %}
+             <button class="btn btn-outline-dark" type='submit' >Enregistrer</button>
+        {% endif %}
     </form>
     </div>
 

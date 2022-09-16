@@ -22,5 +22,3 @@ def test_ambience_form_validate():
     ambience = AmbienceForm(data=temp_ambience)
 
     assert ambience.is_valid()
-
-
