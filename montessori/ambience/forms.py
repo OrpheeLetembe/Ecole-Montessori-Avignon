@@ -20,7 +20,11 @@ class AmbienceForm(forms.ModelForm):
                                widget=forms.DateInput(attrs={"class": "form-control",
                                                              'placeholder': 'jour/mois/année'}))
 
+    note = forms.CharField(
+        label="Commentaires", required=False,
+        widget=forms.TextInput(attrs={"class": "form-control"}))
+
     class Meta:
         model = Ambience
-        fields = ['name', 'date_start', 'date_end']
+        fields = ['name', 'date_start', 'date_end', 'note']
 

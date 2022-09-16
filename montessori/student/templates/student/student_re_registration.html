@@ -4,12 +4,12 @@
 
 {% block content %}
 <div class="">
-
+    <a href="{% url 'ambience_detail' pk=ambience.id%}">Retour</a>
     <div class="box-ambience box-ambience p-2 border border-success rounded">
         {% for student in students %}
              <div class="student_box">
                 <div>
-
+                     <a href="{% url 'change_ambiance' ambience_id=ambience.id student_id=student.id%}">
                      <img class="rounded-circle p-2 w-45 h-45" src="{{student.photo.url}}" alt="">
                     </a>
                 </div>
