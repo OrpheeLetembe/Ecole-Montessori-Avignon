@@ -14,8 +14,8 @@ def test_ambience_form_validate():
 
     temp_ambience = {
         'name': 'Terre',
-        'date_start': '2022',
-        'date_end': '2023',
+        'date_start': '1/09/2022',
+        'date_end': '4/06/2023',
 
     }
 
