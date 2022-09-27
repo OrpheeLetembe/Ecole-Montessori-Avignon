@@ -1,24 +1,23 @@
+from django.contrib.auth import get_user_model
 
 from ambience.forms import AmbienceForm
-from authentication.models import User
-
-import pytest
+from ambience.models import Ambience
 
 
-@pytest.mark.django_db
-def test_ambience_form_validate():
+def test_ambience_form_validate_and_save(ambience_data):
 
     """
-    Testing the AmbienceForm to check if the user input data is properly validated or not
+     The first assert, testing the AmbienceForm to check if the user input data is properly validated or not
+     The second assert, we are checking if the Ambience object is created properly
+    by using AmbienceForm or not
     """
+    #user_model = get_user_model()
+    #test_user = user_model.objects.create_user(user_data)
 
-    temp_ambience = {
-        'name': 'Terre',
-        'date_start': '1/09/2022',
-        'date_end': '4/06/2023',
+    form = AmbienceForm(data=ambience_data)
+    assert form.is_valid()
 
-    }
+    test_ambience = form.save(commit=False)
+    #test_ambience.user = test_user
 
-    ambience = AmbienceForm(data=temp_ambience)
-
-    assert ambience.is_valid()
+    assert isinstance(test_ambience, Ambience)

@@ -1,20 +1,12 @@
-from authentication.models import User
-import pytest
+from django.contrib.auth import get_user_model
 
 
-@pytest.mark.django_db
-def test_user_str():
+def test_user_str(user_data):
 
     """
     Testing whether User's __str__ method is implemented properly
     """
-    user = User.objects.create(
-        username='TestUser',
-        first_name='Test',
-        last_name='User',
-        role='educator',
-        password='test-password',
+    user_model = get_user_model()
+    test_user = user_model.objects.create_user(user_data)
 
-    )
-
-    assert str(user) == f'{user.first_name} {user.last_name}'
+    assert str(test_user) == f'{test_user.first_name} {test_user.last_name}'

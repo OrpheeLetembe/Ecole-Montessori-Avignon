@@ -1,29 +1,20 @@
 from ambience.models import Ambience
-from authentication.models import User
-import pytest
+from django.contrib.auth import get_user_model
 
 
-@pytest.mark.django_db
-def test_ambience_str():
+def test_ambience_str(ambience_data, user_data):
 
     """
     Testing whether ambience's __str__ method is implemented properly
     """
-
-    user = User.objects.create(
-        username='TestUser',
-        first_name='Test',
-        last_name='User',
-        role='educator',
-        password='test-password',
-
-    )
+    user_model = get_user_model()
+    test_user = user_model.objects.create_user(user_data)
 
     ambience = Ambience.objects.create(
         name='Terre',
         date_start='2022-01-09',
         date_end='2023-05-10',
-        user=user,
+        user=test_user,
 
     )
 

@@ -21,6 +21,12 @@ def ambiance_list_view(request):
 
 @login_required
 def ambiance_detail_view(request, pk):
+    """
+
+    :param request:
+    :param pk:
+    :return:
+    """
     user = request.user
     today = date.today()
     ambience = Ambience.objects.get(id=pk)
@@ -43,6 +49,12 @@ def ambiance_detail_view(request, pk):
 
 
 def update_ambience_view(request, pk):
+    """
+
+    :param request:
+    :param pk:
+    :return:
+    """
     ambience = Ambience.objects.get(id=pk)
     if request.method == 'POST':
         form = AmbienceForm(request.POST, instance=ambience)

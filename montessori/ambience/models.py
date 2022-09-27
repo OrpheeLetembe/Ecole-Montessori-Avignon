@@ -22,8 +22,5 @@ class Ambience(BaseModel):
                              verbose_name="utilisateur")
     note = models.TextField(default='observations', verbose_name="Note")
 
-    def get_year(self):
-        pass
-
     def __str__(self):
         return f'{self.name} {str(self.date_start)[:4]}-{str(self.date_end)[:4]}'

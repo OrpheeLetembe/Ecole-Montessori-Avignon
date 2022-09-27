@@ -1,53 +1,20 @@
-
-from authentication.models import User
+from django.contrib.auth import get_user_model
 
 from authentication.forms import SignUpForm
 
-import pytest
 
-
-@pytest.mark.django_db
-def test_signup_form_validate():
+def test_signup_form_validate_and_save(user_data):
 
     """
-    Testing the SignUpForm to check if the user input data is properly validated or not
+    In the first assert, testing the SignUpForm to check if the user input data is properly
+    validated or not.
+    For the second assert, we are checking if the User object is created properly
+    by using SignUpForm or not
     """
+    user_model = get_user_model()
 
-    temp_user = {
-        'username': 'TestUser',
-        'first_name': 'Test',
-        'last_name': 'User',
-        'password1': 'test-password',
-        'password2': 'test-password',
-        'role': 'educator',
+    form = SignUpForm(data=user_data)
+    assert form.is_valid()
 
-
-    }
-
-    user = SignUpForm(data=temp_user)
-
-    assert user.is_valid()
-
-
-@pytest.mark.django_db
-def test_signup_form_save_method():
-
-    """
-    Testing if the User object is created properly by using SignUpForm or not
-    """
-
-    temp_user = {
-        'username': 'TestUser',
-        'first_name': 'Test',
-        'last_name': 'User',
-        'password1': 'test-password',
-        'password2': 'test-password',
-        'role': 'educator',
-
-
-    }
-
-    form = SignUpForm(data=temp_user)
-    user = form.save()
-
-    assert isinstance(user, User)
+    test_user = form.save()
+    assert isinstance(test_user, user_model)
