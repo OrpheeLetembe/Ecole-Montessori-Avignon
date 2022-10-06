@@ -5,13 +5,16 @@
 {% block content %}
 <div class="">
     <div class="block-ambience">
-        <a href="{% url 'update_ambience' pk=ambience.id%}">{{ambience}}</a>
-        {% if ambience.date_end > today %}
-         <ul class="menu_inscription">
+
+
+         <ul class="menu_inscription mt-2">
+                <li class="btn btn-outline-dark"><a href="{% url 'update_ambience' pk=ambience.id%}">{{ambience}}</a></li>
+             {% if ambience.date_end > today %}
                 <li class="btn btn-outline-dark"><a href="{% url 'add_student' pk=ambience.id%}">Inscription</a></li>
                 <li class="btn btn-outline-dark"><a href="{% url 'student_list' ambience_id=ambience.id%}">Réinscription</a></li>
+             {% endif %}
          </ul>
-        {% endif %}
+
 
     </div>
     <div class="box-ambience p-2 border border-success rounded">

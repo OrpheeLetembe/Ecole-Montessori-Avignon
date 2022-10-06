@@ -45,7 +45,7 @@ def test_user_login(client, user_data):
     """
     user_model = get_user_model()
     signup_url = urls.reverse('signup')
-    temp_user = client.post(signup_url, user_data)
+    client.post(signup_url, user_data)
     assert user_model.objects.count() == 1
 
     login_url = urls.reverse('login')
@@ -67,7 +67,8 @@ def test_user_profil(client, authenticated_user):
 
 def test_user_logout(client, authenticated_user):
     """
-        Testing if our logout_view properly logouts user, In the first assert, we are checking if user is redirected to
+        Testing if our logout_view properly logouts user, In the first assert,
+        we are checking if user is redirected to
         "login" route, for the second assert we are checking 302 redirect status code
     """
     logout_url = urls.reverse('logout')

@@ -14,7 +14,6 @@ from student.forms import StudentForm
 @login_required
 def ambiance_list_view(request):
     """ This function allows you to get the list of atmospheres, the most recent ones first."""
-    user = request.user
     ambiences = Ambience.objects.all().order_by('-date_start')
     return render(request, 'ambience/ambience_all.html', {'ambiences': ambiences})
 

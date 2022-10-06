@@ -1,6 +1,6 @@
 from django.urls import reverse, resolve
 from authentication.views import signup_page_view, login_page_view, logout_page_view, \
-    profile_page_view, change_password_view
+    profile_page_view
 
 
 def test_signup_url():
@@ -37,5 +37,3 @@ def test_user_profil_url():
     url = reverse("user_profil")
     assert resolve(url).view_name == 'user_profil'
     assert resolve(url).func == profile_page_view
-
-

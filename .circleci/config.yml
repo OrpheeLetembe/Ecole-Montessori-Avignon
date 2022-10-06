@@ -1,0 +1,46 @@
+version: 2.1
+
+orbs:
+
+  python: circleci/python@1.5.0
+
+
+jobs:
+  linting-and-tests:
+    docker:
+      - image: cimg/python:3.9
+
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          name: Run linting
+          command: flake8
+      - run:
+          name: Run tests
+          command: pytest
+
+  build:
+    machine: true
+    working_directory: ~/project
+
+    steps:
+      - checkout
+      - run:
+          name: Build image and push to DockerHub
+          command: |
+            docker login -u $DOCKERHUB_LOGIN -p $DOCKERHUB_PASSWORD
+            docker build -t orphee1980/repo_letting:$CIRCLE_SHA1 .
+            docker push orphee1980/repo_letting:$CIRCLE_SHA1
+
+workflows:
+  test_build_deploy:
+    jobs:
+      - linting-and-tests
+      - build:
+          requires:
+            - linting-and-tests
+          filters:
+            branches:
+              only: master

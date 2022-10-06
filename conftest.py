@@ -47,5 +47,3 @@ def ambience_data(db):
         'date_end': convert_date_end,
 
     }
-
-
