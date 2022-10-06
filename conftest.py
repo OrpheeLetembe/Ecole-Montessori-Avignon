@@ -27,6 +27,11 @@ def authenticated_user(client, db, user_data):
 
 
 def convert_to_date(date_time):
+    """
+    convert string to date
+    :param date_time:
+    :return:
+    """
     date_format = "%d/%m/%Y"
     datetime_str = datetime.strptime(date_time, date_format)
     return datetime_str
